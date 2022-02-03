@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+    </head>
+    <body>
+
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+
+                <!-- TODO: Add multiple choice question here -->
+                <h3>What is the engine found in the 2021 Porsche 911 GT3?</h3>
+                <form>
+                    <button type="button" id="incorrect1">6.2L LS3 V8</button>
+                    <button type="button" id="incorrect2">3.8L VR38DETT V6</button>
+                    <button type="button" id="correct">4.0L Flat 6</button>
+                </form>
+
+
+
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+
+                <!-- TODO: Add free response question here -->
+                <h3>What is the current fastest production car acceleration wise?</h3>
+                <input autocomplete="off" autofocus id="answer" placeholder="Type your answer..." type="text">
+                <button type="button" id="submit">Submit</button><br>
+                <div id="result"></div>
+
+            </div>
+
+        </div>
+        <script>
+
+            // TODO: Add code to check answers to questions
+
+
+            function correct() {
+                document.querySelector('#correct').textContent = "Correct!";
+                document.querySelector('#correct').style.backgroundColor='#00FF00';
+            }
+            function incorrect() {
+                document.querySelector('#incorrect1').textContent = "Incorrect.";
+                document.querySelector('#incorrect1').style.backgroundColor='#FF0000';
+            }
+            function incorrect2() {
+                document.querySelector('#incorrect2').textContent = "Incorrect.";
+                document.querySelector('#incorrect2').style.backgroundColor='#FF0000';
+            }
+            /* function checkFR() {
+                for (var i = 0; i < answers.length; i++)
+                {
+                    if (document.querySelector('#answer').value === answers[i]) {
+                        document.querySelector('input').textContent = "Correct!";
+                        document.querySelector('input').style.backgroundColor ='#00FF00';
+                    }
+                }
+                document.querySelector('input').textContent = "Incorrect.";
+                // document.querySelector('input').style.backgroundColor ='#FF0000';
+            } */
+
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelector('#correct').onclick = function() {
+                    correct();
+                };
+                document.querySelector('#incorrect1').onclick = function() {
+                    incorrect();
+                };
+                document.querySelector('#incorrect2').onclick = function() {
+                    incorrect2();
+                };
+                document.querySelector('#submit').addEventListener("click", function() {
+                    const answers = ["tesla model s plaid", "model s plaid", "tesla plaid"];
+                    document.querySelector('#result').innerHTML = "Incorrect.";
+                    document.querySelector('#result').style.display = "inline";
+                    document.querySelector('input').style.backgroundColor ='#FF0000';
+                    for (var i = 0; i < answers.length; i++) {
+                        if (answers.indexOf(document.querySelector('#answer').value.toLowerCase()) > -1) {
+                            document.querySelector('input').style.backgroundColor ='#00FF00';
+                            document.querySelector('#result').innerHTML = "Correct!";
+                            document.querySelector('#result').style.display = "inline";
+                        }
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

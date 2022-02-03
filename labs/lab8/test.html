@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <title>Trivia!</title>
+
+    <script>
+        // the function for setting the color of the answer incase its correct
+        function correct()
+        {
+            // selects the answer indicators and sets it to Correct
+            document.querySelector("#question-1").textContent = 'Correct!';
+            document.querySelector("#question-1").style.fontcolour = 'green';
+        }
+
+        // the function for setting the color of the answer incase its wrong
+        function wrong()
+        {
+            // selects the answer indicators and sets it to Wrong
+            document.querySelector("#question-1").textContent = 'Wrong!';
+            document.querySelector("#question-1").style.fontcolour = 'red';
+        }
+
+        // function for reseting the color of the button each time its being pressed
+        function reset_button_color()
+        {
+            // selects the three buttons and resets their colors to the correct color code
+            document.querySelector('#correct').style.backgroundColor = '#d9edff';
+            document.querySelector('#wrong_1').style.backgroundColor = '#d9edff';
+            document.querySelector('#wrong_2').style.backgroundColor = '#d9edff';
+
+        }
+
+        // When the pages content loads
+        document.addEventListener('DOMContentLoaded', function()
+        {
+            // when you click on the button with the correct id it would change the color to green and run the correct function that we made and it also clears the previous colors
+            document.querySelector('#correct').onclick = function()
+            {
+                reset_button_color();
+                document.querySelector('#correct').style.backgroundColor = 'green';
+                correct();
+            };
+
+            // when you click on the button with the wrong_1 id it would change the color to red and run the wrong function that we made and it also clears the previous colors
+            document.querySelector('#wrong_1').onclick = function()
+            {
+                reset_button_color();
+                document.querySelector('#wrong_1').style.backgroundColor = 'red';
+                wrong();
+            };
+
+            // when you click on the button with the wrong_2 id it would change the color to red and run the wrong function that we made and it also clears the previous colors
+            document.querySelector('#wrong_2').onclick = function()
+            {
+                reset_button_color();
+                document.querySelector('#wrong_2').style.backgroundColor = 'red';
+                wrong();
+
+            };
+        });
+    </script>
+
+</head>
+<body>
+
+    <div class="jumbotron">
+        <h1>Trivia!</h1>
+    </div>
+
+    <div class="container">
+
+        <div class="section">
+            <h2>Part 1: Multiple Choice </h2>
+            <hr>
+            <h3>Is the Earth flat?</h3>
+            <h3 id="question-1"></h3>
+            <button type="button" id="wrong_1">Yes</button>
+            <button type="button" id="correct">No</button>
+            <button type="button" id="wrong_2">Maybe</button>
+
+        <div class="section">
+            <h2>Part 2: Free Response</h2>
+            <hr>
+
+            <!-- TODO: Add free response question here -->
+
+        </div>
+
+    </div>
+</body>
