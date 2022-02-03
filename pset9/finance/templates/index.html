@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <h1 class="main bold">Account Summary</h1>
+    <table class="table tablestriped">
+        <tr class="centered bold">
+            <th colspan="4">Symbol</th>
+            <th colspan="4">Company Name</th>
+            <th colspan="4">Shares Owned</th>
+            <th colspan="4">Current Price</th>
+            <th colspan="4">Total Value</th>
+        </tr>
+        <tbody class="main">
+            {% for company in stocks if not company.total_shares == 0 %}
+                <tr>
+                    <td colspan="4">{{ company.symbol }}</td>
+                    <td colspan="4">{{ company.name }}</td>
+                    <td colspan="4">{{ company.total_shares }}</td>
+                    <td colspan="4">{{ company.price | usd }}</td>
+                    <td colspan="4">{{ company.subtotal | usd }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        <tr>
+            <td colspan="15"></td>
+            <td class="border-0 text-end">Current Cash:</td>
+            <td class="border-0 text-end">{{ cash | usd }}</td>
+        </tr>
+        <tr>
+            <td colspan="15"></td>
+            <td class="border-0 text-end">Total:</td>
+            <td class="border-0 text-end">{{ total | usd }}</td>
+        </tr>
+    </table>
+{% endblock %}

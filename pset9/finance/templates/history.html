@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <h1 class="main bold">Transaction History</h1>
+    <table class="table tablestriped">
+        <tr class="centered bold">
+            <th colspan="4">Symbol</th>
+            <th colspan="4">Company Name</th>
+            <th colspan="4">Shares Bought/Sold</th>
+            <th colspan="4">Price Bought/Sold</th>
+            <th colspan="4">Total Value Bought/Sold</th>
+            <th colspan="4">Transaction Time</th>
+        </tr>
+        <tbody class="main">
+            {% for transaction in transactions %}
+            <tr>
+                <td colspan="4">{{ transaction.symbol }}</td>
+                <td colspan="4">{{ transaction.name }}</td>
+                <td colspan="4">{{ transaction.shares }}</td>
+                <td colspan="4">{{ transaction.price | usd }}</td>
+                <td colspan="4">{{ transaction.total | usd }}</td>
+                <td colspan="4">{{ transaction.transaction_time }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

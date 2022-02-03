@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <h1 class="main bold">{{ name }}</h1>
+    <div class="form-group">
+        <h2 class="main">{{ symbol }}</h2>
+    </div>
+    <div class="form-group">
+        <h3 class="main">{{ price | usd }}</h3>
+    </div>
+{% endblock %}

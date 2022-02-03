@@ -1,0 +1,65 @@
+We can only declare variables by initializing them.
+
+If you wanted to assign a variable to true/false based on a condition in C:
+
+bool alphabetic = isalpha(var) ? true : false;
+
+In Python:
+
+letters_only = True if input().isalpha() else False
+
+Python has list comprehension (i.e. we can declare lists/arrays with a loop):
+
+list = [x for x in range(500)]
+
+list.insert(index, value)
+
+Tuples are great for associating collections of data (like a C struct) but where those values are unlikely to change.
+
+presidents = [("Washington", 1789), ("Adams", 1797), ("Jefferson", 1801)]
+
+for prez, year in presidents:
+    print("In {1}, {0} took office".format(prez, year))         # Prez corresponds with {0} and year with {1}
+
+Index into dictionaries with dict_name[key] = value; add a new key/value pair with dict_name[new_key] = new_value
+
+for key in dictionary:              <-- loops over all keys in dict
+    # code here
+
+for key, value in dict_name.items():            <-- loops over all items in dict. NOTE THAT THE ORDER OF DICT VALUES WILL BE LOST WHEN TRANSFORMED TO LIST
+    # code here
+
+If you want your program to start from C's "main()" function, your code must have this at the very end:
+if __name__ = "__main__":
+    main()
+
+
+struct car
+{
+    int year;
+    char *model;
+}
+
+C structures (above) have properties, but these properties can never stand alone. Objects have properties but also methods (or functions that are inherent to the object and mean nothing outside
+of it). You define methods inside the object also. Properties and methods never stand alone.
+
+In object oriented programming, we don't pass objects into a function, we call methods on objects. ~~function(object)~~ object.method()
+
+We can define a type of object in Python with the class keyword. We have to define functions or methods that can apply to the object as well. Every method defined in the class has at least one
+parameter: self.
+
+class Student():
+    def __init__(self, name, id):           <-- Assigns passed in name and id to properties of Student
+        self.name = name
+        self.id = id
+
+    def changeID(self, id):
+        self.id = id
+
+    def print(self):
+        print("{} - {}".format(self.name, self.id))
+
+jane = Student("Jane", 10)
+jane.print()
+jane.changeID(11)
+jane.print()            <-- "Jane - 11"
