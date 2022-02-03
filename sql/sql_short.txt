@@ -1,0 +1,14 @@
+As part of creating a table we will be asked to specify all columns of said table; thereafter queries will be referring to ROWS of the table.
+Each column is capable of holding data of a different type. All data can be reduced to 1 of 5 affinity types (blob, null, text, real, integer).
+
+It is also possible to establish joint primary keys--a combination of two columns that is always guaranteed to be unique. When defining a column to be your primary key, it is a good idea to have
+it be integers and to set it to autoincrement.
+
+QUERIES AND STRUCTURE
+
+INSERT INTO <table> (<columns>) VALUES (<values>)       <-- items in brackets are comma separated lists.
+SELECT <columns> FROM <table> WHERE* <condition> ORDER BY* <column>     <-- clauses with asterisks are optional. Columns may be a comma separated list. SELECT * is shorthand for "every column"
+SELECT <columns> FROM <table1> JOIN <table2> ON <predicate>     <-- "predicate" is where the two tables overlap (i.e. what columns are the same/are keys)
+    e.g. SELECT users.fullname, moms.mother FROM users JOIN moms ON users.username = moms.username
+UPDATE <table> SET <column> = <value> WHERE <predicate>
+DEELTE FROM <table> WHERE <predicate>

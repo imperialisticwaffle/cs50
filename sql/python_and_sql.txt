@@ -1,0 +1,39 @@
+A fundamental concept of relational databases is to figure out relationships among data and to normalize your data (eliminate redundancies).
+
+Using the show/genre example from the previous txt file, we can create a relational database as follows:
+
+SHOWS                                                   GENRES
+---------------                                         ----------------------
+id (integer value)  <-------------------------          show_id
+title                                                   genre
+
+Thus we may have multiple rows across our two tables for a single show, but it will be efficient as the genres are mapped to the specific show and its ID.
+
+A few data types in SQLite:
+BLOB (binary large object)
+INTEGER (can be subdivided into: smallint, integer, bigint)
+NUMERIC (number like but not a number (i.e. date or time)) (subdivided into: boolean, date, datetime, numeric(scale, precision), time, timestamp)
+REAL (float) (subdivided into: real, double precision)
+TEXT (subdivided into: char(n) (column has all entries of char length n), varchar(n) (column has max char length n), text (regular big text))
+
+Column Specifiers:
+NOT NULL (must fill in field)
+UNIQUE (can't enter same data type twice)
+
+Primary keys and foreign keys:
+    Primary keys: column in a table uniquely identifying every row (i.e. in SHOWS VS. GENRES id is our primary key, semantically)
+    Foreign keys: We can refer back to other tables (genres referring back to shows via show_id. Foreign keys = columns equivalent to another table's column uniquely identifying every row)
+
+If we have "The Office" with an id of 1 and genres "romance", "comedy", "drama", we could have 3 foreign keys 1, 1, 1 (denoting 3 separate rows) and adjacent entries "romance", "comedy", "drama"
+to each 1.
+
+
+If you look at python_sql.py you will notice that this still contains redundancies (since we have duplicate genres in distinct rows for multiple shows when really we should only have 1 unique
+row item/genre that gets distributed to multiple shows). Below is an illustration of how to fully normalize this database:
+
+SHOWS                                   shows_genres                        genres
+---------                               ----------------                    ---------------
+id                  <--------------     show_id                    ----->   id
+title                                   genre_id            ------|         name
+
+shows_genres is just a table of foreign keys. Shows and genres have their own primary keys, but are still joined by shows_genres which maps the relationship between the two.

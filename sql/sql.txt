@@ -1,0 +1,111 @@
+We can generally think of stored .csv (perhaps on our hard drives) as flat-file databases, meaning they follow a uniform format and are simple.
+
+In Python, we can sort dictionary data by values instead of the default (keys) by passing FUNCTIONS as parameters to sorted(). We can define a function that, given a movie title, returns its
+associated count from a dictionary (titles):
+
+def f(title):
+    return titles[title]
+
+And use the function above in sorted() as follows:
+
+for title in sorted(titles, key=f, reverse=True):     <-- notice that we pass the custom function in by name only
+    print(title, titles[title]
+
+If you have a short, local function that solves a problem in a few lines we can use the lambda keyword to define an anon function as follows.
+for title in sorted(titles, key=lambda title: titles[title], reverse=True):     <-- lambda is a "no-name" function, taking parameter "title" and returning "titles[title]"
+    print(title, titles[title]
+
+
+Flat file databases are convenient in that they don't require any specific software like Excel or Numbers and can be accessed by any programming language; however, they are not suitable for
+large datasets and generating efficient queries.
+
+Relational databses, on the other hand, are programs that store your data. SQL (structured query language) is a language that can standalone or work with other languages like Python, used for
+interacting with relational databases. We use the command line prompt "sqlite3" to deal with tables (database objects that contain all the data in the database that also have rows and columns)
+and load them into binary code.
+
+Some commands:
+
+.mode csv
+.import <filename> <tablename>
+
+Four operations supported by relational databases:
+Create
+Read
+Update
+Delete
+
+The operation names are different in sql:
+Create, Insert
+Select
+Update
+Delete
+
+We can create tables in SQL by typing the following command line:
+CREATE TABLE <tablename> (<columnname> <columntype>, etc (same thing for more columns))
+.import "filename" command automatically creates a table for you
+
+We can also read from created tables:
+SELECT <column1>, <column2>, etc. FROM <tablename>
+
+SQL comes with inbuilt functions as well as clauses:
+AVERAGE
+COUNT
+DISTINCT
+LOWER
+MAX
+MIN
+UPPER
+INSERT
+UPDATE
+DELETE
+
+WHERE           <-- where <condition>
+LIKE            <-- search for close matches, take wildcard operators like "%"
+ORDER BY
+LIMIT
+GROUP BY
+
+An example of sorting the titles of movie shows from a google form:
+SELECT DISTINCT(UPPER(title)) FROM shows ORDER BY UPPER(title);
+
+More examples:
+SELECT UPPER(title), COUNT(title) FROM shows GROUP BY UPPER(title); <-- GROUP BY tells sql to collapse multiple uppercase titles together while counting their repetitions
+
+The above code, but ordered:
+SELECT UPPER(title), COUNT(title) FROM shows GROUP BY UPPER(title) ORDER BY COUNT(title) DESC; <-- DESC for descending, ASC (default) for ascending order
+
+Above code, but with whitespace trimmed for greater accuracy:
+SELECT UPPER(TRIM(title)), COUNT(title) FROM shows GROUP BY UPPER(TRIM(title)) ORDER BY COUNT(title) DESC;
+
+This gets quite messy, however; if you wanted to select the genre "Music" but had another genre called "Musical" and you provided the following code:
+SELECT title FROM shows WHERE genres LIKE "%Music,%" OR genres like "%Music,"
+You would need to account for many cases of the genre title "Music" as it could be at the end of the comma separated list of column titles, in the middle, etc.
+
+To address this, perhaps we could create two tables--one for shows and one containing the list of genres so each genre gets its own cell rather than being a comma separated list. For this, we
+need the ability to create our own tables:
+CREATE TABLE table (columnname columntype, ...);
+
+and this:
+INSERT INTO table (columnname(s), ...) VALUES(value, ...);
+
+A concrete example of the INSERT function with the movies and genres table:
+INSERT INTO shows (Timestamp, title, genres) VALUES ("now", "The Muppet Show", "Comedy, Musical");
+
+If you wanted to update the show genres:
+UPDATE shows SET genres = "Comedy, Drama, Musical" WHERE title LIKE "%Muppet%";
+
+If you wanted to delete all instances of a show:
+DELETE FROM shows WHERE title LIKE "Friends";
+
+If you want to join relational databases together into a consolidated user friendly table (explicitly or implicitly):
+    SELECT title FROM people
+...>JOIN stars on people.id = stars.person_id
+...>JOIN shows on stars.show_id = shows.id
+...>WHERE name = "Steve Carell";
+
+IF you want your program to execute faster:
+CREATE INDEX <index_name> ON <tablename> (column_name);
+
+
+Common issues for SQL databases include SQL injection attacks (using characters that ruin the code) or race conditions (when, say, two people click like on a post at the same time, databses
+containing the number of likes get updated twice from the same initial value. The solution is to lock users out of the database if this is a possibility using transactions).
