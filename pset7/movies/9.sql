@@ -1,0 +1,2 @@
+/* write a SQL query to list the names of all people who starred in a movie released in 2004, ordered by birth year. */
+SELECT DISTINCT people.name FROM stars JOIN movies on movies.id = stars.movie_id JOIN people on people.id = stars.person_id WHERE year = 2004 ORDER BY birth ASC

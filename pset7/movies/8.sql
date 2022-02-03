@@ -1,0 +1,2 @@
+/* write a SQL query to list the names of all people who starred in Toy Story. */
+SELECT people.name FROM stars JOIN movies on movies.id = stars.movie_id JOIN people on people.id = stars.person_id WHERE title = "Toy Story"
