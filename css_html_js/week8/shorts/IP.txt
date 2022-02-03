@@ -1,0 +1,28 @@
+The internet is an interconnected network of smaller networks agreeing to communicate with each other. How these networks know how to communicate with one another comes down to IP.
+
+
+We can't afford to wire all networks together on a global scale as that would simply cost too much. This is where routers come in handy; what if each network was connected to a limited number of
+routers and each router had instructions on how to move information to their destinations? Now the network is not entirely directly connected to one another since they rely on routers to
+distribute communications. On a large scale, this can dramatically reduce infrastructure costs.
+
+IP splits data into packets, since a large block of data could throttle speeds for other users on the network.
+
+IP is known as a connectionless protocol, meaning that there isn't necessarily a defined path from sender to receiver and vice versa. In response to network throttling some packets may be
+rerouted to follow the most optimal path based on the state of the network.
+
+If IP is the protocol for getting information from the sending machine to a receiving machine, then TCP is directing the transmitted packet to the correct program on the receiving machine. TCP
+also guarantees delivery by including info about how many packets the receiver should expect to get and in what order, and transmitting that info with the data. A port number is how a specific
+service, utility, or program is identified on a machine; some common port numbers include:
+FTP: 21
+SMTP: 25
+DNS: 53
+HTTP: 80
+HTTPS: 443
+
+Steps:
+1. TCP breaks data to be sent into smaller chunks and communicates the packets to the computer's network software, adding a TCP layer to the packet.
+2. IP routes the individual packets from sender to receiver; this info is part of the IP layer surrounding the packet.
+3. When the destination computer gets the packets, TCP looks at the header to see what program they belong to; since the routes packets take differs, TCP must also present those packets to the
+destination program in proper order.
+
+If the destination computer is missing a packet, it can put in an individual request to be sent back to the sender by TCP through IP

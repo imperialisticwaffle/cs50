@@ -1,0 +1,19 @@
+The document object organizes the entire content of a webpage into a single javascript object. Using this, we can modify or manipulate the page's elements programmatically with javascript instead
+of having to edit with HTML. The document object has a number of properties and methods that can be used to drill down to a specific point of your website.
+
+DOM properties and descriptions:
+innerHTML: holds the HTML inside a set of HTML tags
+nodeName: name of an HTML element or element's attribute
+id: the "id" attribute of an HTML element
+parentNode: reference to the node one level up in the DOM
+childNodes: array of references to the nodes one level down in the DOM
+attributes: array of attributes of an HTML element
+style: an object encapsulating the CSS/HTML styling of an element
+
+DOM methods and descriptions:
+getElementById(id): gets the element with a particular ID below this point in the DOM
+getElementsByTagName(tag): gets all elements with the given tag below this point in the DOM
+appendChild(node): add the given node to the DOM below this point
+removeChild(node): remove the specified child node from the DOM
+
+Granted, writing all this information out in pure javascript can be quite tedious; a handy tool to use is JQuery, where you can learn more about here: https://api.jquery.com

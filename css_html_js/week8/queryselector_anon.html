@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html lang="en">        <!--- Here is the beginning of the webpage (open tag); attribute "lang" attaches to tag "html", tells browser contents of webpage are to be in English --->
+    <head>              <!--- Child of HTML parent tag --->
+        <script>
+
+            document.querySelector('DOMContentLoaded', function() {
+                document.querySelector('form').addEventListener('submit', function() {
+                    let name = document.querySelector('#name').value;
+                    alert('hello, ' + name);
+                });
+            });
+
+        </script>
+        <title>
+            hello, title
+        </title>
+    </head>
+    <body>
+        <form>
+            <input autocomplete="off" autofocus id="name" placeholder="Type your name..." type="text">      <!--- placeholder = greyed out text in textbox, autofocus automatically places cursor
+            in text box --->
+            <input type="submit" value="Greet me">
+        </form>
+    </body>
+</html>
+
+<!--- Here we have a modification of queryselector.html, wherein we have an anonymous function that gets called when the website content is fully loaded, and then another anonymous function that
+gets called to greet the user.
+
+Note that javascript has a similar function to a Python print(f"{}") string, which is just as follows: `___ ${variable_name}`.
+
+BE SURE TO USE DEVELOPER TOOLS TO SEE WHAT IS HAPPENING IN REALTIME TO YOUR SAMPLE WEBSITES. --->

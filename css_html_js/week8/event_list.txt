@@ -1,0 +1,15 @@
+Here is a nonexhaustive list of events one can listen for in a browser:
+blur
+change
+click
+drag
+focus
+keyup
+load
+mousedown
+mouseover
+mouseup
+submit
+touchmove
+unload
+...

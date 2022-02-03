@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>
+            search
+        </title>
+    </head>
+    <body>
+        <form action="https://www.google.com/search" method="get">      <!--- We have a form (frontend) whose action will be to send the user to google.com with added HTTP parameters by the input
+        tags below --->
+        <!--- "post" is another method, which hides the "q=..." section in the url; it is often used for privacy concerns --->
+            <input name="q" type="search">
+            <input type="submit" value="Search">
+        </form>
+    </body>
+</html>

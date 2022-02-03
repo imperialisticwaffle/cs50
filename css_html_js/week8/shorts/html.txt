@@ -1,0 +1,54 @@
+There are over 100 HTML tags and lots of resources online to find them. You can also learn about HTML tags by inspecting element on websites you frequent. Every tag you open should be closed in
+reverse order of when they were opened. Use online HTML validators to check if your code is well formed.
+
+Common Tags
+<b></b>
+Boldface
+
+<i></i>
+Italicize
+
+<u></u>
+Underline
+
+<p></p>
+Paragraph tag, adds space above and below
+
+<hX></hX>
+Header #X tag
+
+<ul></ul>
+Unordered, bulleted list
+
+<ol start=x></ol>
+Numbered list
+
+<li></li>
+Indicate list items in an ordered or unordered
+
+<table></table>
+Define a table
+
+<tr></tr>
+Indicate the beginning and end of a row in a table
+
+<td></td>
+Indicate the beginning and end of a column in a row in a table
+
+<form></form>
+Indicate the beginning and end of a HTML form that takes input
+
+<input name=X type=Y />     <-- self closing tag
+Elements you are typing into or buttons you are ticking off. Types: text, password, radio, checkbox, submit, etc.
+
+<div></div>
+Indicate beginning and end of an arbitrary page division in HTML, can put a form in said division
+
+<a href=X></a>
+Creates a hyperlink to webpage X with the text between the tags rendered and functional as the link text
+
+<img src=X ... />
+Self closing tag for displaying an image at source X, with possible additional attributes (specifying width and height)
+
+<!DOCTYPE html>
+Indicates we are using HTML5

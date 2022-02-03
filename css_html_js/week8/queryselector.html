@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="en">        <!--- Here is the beginning of the webpage (open tag); attribute "lang" attaches to tag "html", tells browser contents of webpage are to be in English --->
+    <head>              <!--- Child of HTML parent tag --->
+        <script>
+
+            function greet()
+            {
+                let name = document.querySelector('#name').value;
+                alert('hello, ' + name);
+            }
+
+            function listen()
+            {
+                document.querySelector('form').addEventListener('submit', greet);
+            }
+
+            document.querySelector('DOMContentLoaded', listen)  // When DOMcontent is loaded, call function listen, which then adds another listener for submit event
+        </script>
+        <title>
+            hello, title
+        </title>
+    </head>
+    <body>
+        <form onsubmit="greet()"; return false;>
+            <input autocomplete="off" autofocus id="name" placeholder="Type your name..." type="text">      <!--- placeholder = greyed out text in textbox, autofocus automatically places cursor
+            in text box --->
+            <input type="submit" value="Greet me">
+        </form>
+    </body>
+</html>
+
+<!--- The world of programming is full of events (clicking on a page, touching a page on a phone, submitting a form, etc).
+Using javascript we can now write code that listens for these events using addEventListener('item to listen for', action_when_heard).
+
+Note that you have to define 'form' first before accessing it; currently it is accessed on line 13 before it is defined on line 21.
+
+While we could copy and paste the entire script block under the definition of form, this is not good practice; instead, we can define another function "listen()" which gets called after the
+ENTIRE website data structure is loaded (including the form tag and everything else) ("DOMContentLoaded), resolving any problems. The listen() function will add another listener to the form
+tag listening for submissions. --->

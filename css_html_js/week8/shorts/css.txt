@@ -1,0 +1,36 @@
+If HTML is used to organize the content we put on our pages, CSS is used to customize the website's look and feel. Style sheets are written directly into your HTML (place them in <style> tags
+in your page's head). Style sheets can also be written as separate CSS files and linked to your document (use <link href="X" rel="stylesheet" /> tags in your page's head to accomplish this).
+
+body                <-- beginning of style sheet (selector)
+{
+    -- List key value pairs here --
+    background-color: blue;     <-- declaration
+}
+
+
+#unique               <-- selector for IDs. Applies to all HTML tags with the "#unique" identifier
+{
+    -- Code --
+}
+
+.students               <-- selector for classes. Applies to all HTML tags with identical class attributes
+{
+    -- Code --
+}
+
+Common CSS properties:
+border: style color width
+Applies border of specified color, style, and width
+
+background-color: [keyword | #<6 digit hex>]
+Sets background color, some colors are predefined in CSS
+
+color: [keyword | #<6 digit hex>]
+Sets foreground color, usually text
+
+font-size: [absolute size | relative size]
+Can use keywords (xx-small, medium), to fixed points (10pt, 12pt) or percentages, or based on earlier sizes (smaller, larger)
+
+font-family: [font name | generic name]
+
+text-align: [left | right | center | justify]
