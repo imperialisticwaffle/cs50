@@ -1,0 +1,21 @@
+Install command line tools:
+developer.apple.com/xcode/
+docs.microsoft.com/en-us/windows/wsl/about
+
+Maintaining versions:
+Git: youtu.be/MJUJ4wbFm_A
+
+Host a site (static webpage):
+pages.github.com
+netlify.com
+
+Host a dynamic webapp:
+heroku.com/platform
+aws.amazon.com/education/awseducate
+azure.microsoft.com/en-us/free/students
+edu.google.com/programs/students
+
+Keep reading:
+serverfault.com
+stackoverflow.com
+news.ycombinator.com

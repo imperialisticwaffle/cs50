@@ -1,0 +1,13 @@
+A key function of Flask is to analyze the inside of "virtual envelopes", figuring out what the user input is and the route (/search, /index.html, etc.)--ultimately making these pieces of info
+more accessible to you, the programmer.
+
+Here is a framework for using Flask:
+application.py  (general code)
+requirements.txt  (what are the other libraries you are using in your application)
+static/  (gifs, pngs, jpgs, etc.)
+templates/ (html templates)
+
+Flask uses an MVC design pattern: controller (file or files controlling the webapp) --> manipulates --> model (technique, service, or software you're using for your data) --> updates -->
+view (what the human sees (html, css, UI)) --> sees --> user --> uses --> controller
+
+Flask also allows us to factor out common content.

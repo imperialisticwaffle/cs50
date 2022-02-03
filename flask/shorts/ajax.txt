@@ -1,0 +1,22 @@
+Informally, AJAX allows us to dynamically update a webpage even MORE dynamically (refresh sections of the page without refershing the WHOLE page).
+
+We need to make use of a javascript object XMLHttpRequest to asynchronously update our website.
+
+After obtaining the object we have to define the onreadystatechange behaviour.
+    Typically this is an anonymous function that will be called when the asynchronous HTTP request has completed and defines what is expected to change on your site.
+    The readystate property will change from 0 to 4 (request not yet initialized to request finished, response ready.
+    The status property will hopefully be 200 (OK).
+    Then, make your asynchronous request with open() to define the request and send() to actually send it.
+
+Pure javascript usage of AJAX
+function ajax_request(argument){
+    var aj = new XMLHttpRequest();
+    aj.onreadystatechange = function() {
+        if (aj.readyState == 4 && aj.status == 200) {
+            // do something to page
+        }
+    };
+
+    aj.open("GET", /* url */, true);
+    aj.send();
+}
