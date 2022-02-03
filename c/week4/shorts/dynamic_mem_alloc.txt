@@ -1,0 +1,22 @@
+We can dynamically allocate memory by calling malloc(); if it can, malloc() will return a pointer to the new allocated memory. If it can't allocate memory, it will hand back NULL, which you
+should always check for in a base case.
+
+To statically declare an integer (uses memory from stack), we can do the following:
+int x;
+
+To dynamically declare an integer (uses memory from heap), we can do the following:
+int *px = malloc(sizeof(int));
+
+To declare an array of floats on the stack:
+float stack_array[x];
+
+To declare an array of floats on the heap:
+
+float *heap_array = malloc(x * sizeof(float)); <-- number elements * size of float
+
+Remember to FREE MEMORY once you've finished with it to prevent memory leaks. Rules:
+1. Every block you malloc() should be freed before the program ends.
+2. Only things you malloc() should be freed.
+3. Do not free a block of memory more than once.
+
+Once you free a block of memory you do not have write access to that block of memory anymore (a segmentation fault may occur if you attempt to modify it).

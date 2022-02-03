@@ -1,0 +1,6 @@
+When you call a function the system sets aside memory space for that function to do work. We call such memory chunks stack frames or function frames.
+
+More than one function's stack frame may exist in memory at a given time but only one will ever be active at any moment.
+
+These frames are arranged in a stack, and the frame for the most recently called function is at the top of the stack (said frame is pushed to the top of the stack). When the function at the top is
+finished executing, its frame is popped off the stack and the frame immediately below it becomes the new active function on top of the stack.

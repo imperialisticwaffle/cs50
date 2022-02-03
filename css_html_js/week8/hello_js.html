@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html lang="en">        <!--- Here is the beginning of the webpage (open tag); attribute "lang" attaches to tag "html", tells browser contents of webpage are to be in English --->
+    <head>              <!--- Child of HTML parent tag --->
+        <script>
+
+            function greet()
+            {
+                let name = document.querySelector("#name").value;       // Go inside tree of website data structure and select value from unique identifier node "name".
+                alert("hello, " + name);
+            }
+
+        </script>
+        <title>
+            hello, title
+        </title>
+    </head>
+    <body>
+        <form onsubmit="greet()"; return false;>
+            <input autocomplete="off" autofocus id="name" placeholder="Type your name..." type="text">      <!--- placeholder = greyed out text in textbox, autofocus automatically places cursor
+            in text box --->
+            <input type="submit" value="Greet me">
+        </form>
+    </body>
+</html>

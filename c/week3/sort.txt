@@ -1,0 +1,63 @@
+Recall that binary search (logarithmic chop) requires us to sort the data first. Sorting data is an algorihtm by itself.
+
+Oftentimes as a computer scientist you will have to make the tradeoff between upfront cost and long-term efficiency; we could spend a lot of time coding and debugging binary search for an array,
+but it's not necessarily worth it if the array is small enough--you could just code linear search quickly and move on to other problems.
+
+Thining about sorting an array in a computer-like fashion, we see the following steps.
+1. For each element in the array, keep track if the current element is the smallest number so far that we have seen.
+2. Once the smallest number is obtained, swap positions with the leftmost element.
+3. Repeat steps 1 and 2 for the next smallest element.
+On each iteration, we compare n numbers (first iteration), then n - 1 numbers (second iteration), then n - 2 numbers (third iteration), etc. A type of arithmetic series, if we are to expand this
+out we get (n^2/2) + (n/2) as our running time.
+
+Over time, the (n^2/2) term will matter more than (n/2); thus we get the order of n squared or O(n^2) as we ignore constants.
+
+Pseudocode for selection sort:
+
+for i from 0 to n - 1
+    Find smallest item between i'th item and last item
+    Swap smallest item with i'th item
+
+Bubble sort:
+1. For each pair of elements in the array, left to right, swap the two elements if the one on the left is greater than the other. Otherwise, leave be.
+2. After each pass through the array, repeat step 1 until the last sorted element (the greatest number will always go to the end of the array).
+Pseudocode:
+Repeat until sorted
+    for i from 0 to n - 2
+        if i'th and i'th + 1 elements are out of order
+            Swap them
+    if no swaps
+        Quit
+
+Bubble sort, seen in pseudocode above, has n - 1 comparisons (for loop) inside n - 1 iterations (repeat). Thus we have n^2 - 2n + 1, which gives us an order of n^2 (O(n^2)).
+Thus bubble and selection sort are asymptotically equivalent on the upper bound. Bubble sort also has a lower bound of (omega)(n) since we look at each element at least once.
+
+We can actually implement recursion in C, whereby our own functions can call themselves. Note that for recursion, the input must change to provide different outputs; we can call the function
+itself, but must feed it different inputs to change the output which becomes the input again. Think about Mario's pyramids from week 0; to build a pyramid of heigh 4, you first build a pyramid
+of height 3, which builds from a pyramid of height 2, which builds from a single brick.
+
+Merge sort pseudocode:
+if only one number
+    Quit
+else
+    Sort right half of numbers
+    Sort left half of numbers
+    Merge sorted halves
+
+How do we sort the halves, anyway?
+1. Refer to base case: say 1 half has 4 elements, we can break it down into 2 halves each of 2 elements, each of the "2 halves" with 2 halves each of 1 element.
+2. In 2h/1e we can now compare the two individual elements (since our code says "if only 1 number, quit" so we leave individual elements alone).
+3. Once comparing 2h/1e and placing the lower element first we have a sorted array of 2 elements.
+4. We repeat steps 2 and 3 for the other half with 2 elements.
+5. Now we merge the two arrays that both contain 2 elements for an unsorted array of 4 elements.
+
+When merging sorted halves, we compare:
+1. Element 1 on the left half with the element 1 on the right half and add the smallest element to a new list
+2. Then we compare the non-added element with the next element from the other half and add the smaller element to the new list.
+3. Repeat step 2.
+
+The upper and lower bound of this merge sort, as with divide and conquer, is log base 2 of 8 (or generalized, O(n log n)). You will also probably need another array to pass numbers into sa you
+sort the initial array. Note also that when an algorithm ahs the same upper and lower bound we use Theta instead of O/omega. So merge sort --> (Theta)(n log n).
+
+Deciding which sort algorithm to use depends also on your constraints. Merge sort will be heavy on memory, so perhaps you want to save memory and can sacrifice time, and so bubble sort will be
+better for you. It depends on what tradeoffs you will make.

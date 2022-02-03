@@ -1,0 +1,17 @@
+We can rewrite data types by using the typedef keyword; the format is as follows: typedef <old name> <new name>
+
+Example: typedef unsigned char byte;
+
+We can declare attributes to data types the following way:
+
+typedef struct car (old name)
+{
+    int year;
+    char model[10];
+    char plate[7];
+    int odometer;
+    double engine_size;
+}
+car_t (new name)
+
+Now you can declare variables of type car_t: car_t mycar

@@ -1,0 +1,2 @@
+/* argc + argv can be added to main() to create parameters/input at runtime. Argc is argument count (./filename counts as an argument) and argv is argument vector of all arguments typed.
+The last element of argv is argc - 1. Same rule about not stepping out of bounds of the array applies to CLAs and argv. */

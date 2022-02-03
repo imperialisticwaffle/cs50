@@ -1,0 +1,12 @@
+Computer scientists use hexadecimals, which are expressed in base 16. We count from 0 - 9, and then use letters of the alphabet. 0 1 2 3 4 5 6 7 8 9 A B C D E F (0 to 15)... etc.
+
+Like binary, the ones are expressed in 16^0, tens are 16^1, hundreds 16^2, etc. The number 16 in hexadecimal would be 10 (1 * 16^1 + 0 * 16^0); the number 94 would be 5E.
+
+Because hexadecimal allows you to represent 16 possible values it's perfect for representing 4 bits at a time (i.e. one hexadecimal digit = 4 binary digits).
+
+We can also represent RGB with hex--the colour 72 73 33 using decimal values could be represented as 48 49 21 in hex. Because it's also not glaringly obvious which is decimal and which is hex,
+we use the convention of adding a "0x" in front of each hex value (0x48 0x49 0x21).
+
+You will see hex values of colours in applications like Photoshop--the absence of all colour (black) is valued at 0x000000; white is all of each colour, so the maximum is 0xFFFFFF.
+
+By extension we can think of each byte in a computer's memory as containing a specific hex value/label, enumerated from 0 - F and so on.

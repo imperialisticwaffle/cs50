@@ -1,0 +1,20 @@
+Pointers provide an alternative way of passing data between functions. Recall that up to this point we have passed data by value, with 1 exception; when we pass data by value, we pass only a copy
+of that data. With pointers we can pass the actual variable itself; so changes made in 1 function will impact another function. Pointers allow us to modify or inspect the location to which it
+points. If we have a pointer to char pc (char *pc), then *pc is the data that lives inside the memory address stored inside the variable pc. The asterisk (*) is both used for pointer syntax and
+dereference operations.
+
+We can think of memory as a large array of single byte sized elements. We can access any random element by indicating the index location we want; similarly each element/location has an address.
+
+REMEMBER: pointers are addresses. They are a data item whose value is a memory address and whose type describes the data type located at that address.
+
+If you have no value to initialize a pointer to, initialize it to NULL. Dereferencing a NULL pointer causes a segmentation fault (better to crash a program than tamper with memory that doesn't
+belong to your function).
+
+We can extract the address of any variable with the ampersand operator. As well, if you have an array, you can access the address of the i'th element by the following:
+&arrayname[i]
+The array's name is actually the pointer to the first element (hence why when you pass an array as a parameter into a function you are modifying the original array).
+
+Declaring multiple pointers on a single line requires asterisks before each variable.
+
+Strings, because they are pointer variables, are either 4 or 8 bytes depending on your OS (32 vs 64 bits).
+

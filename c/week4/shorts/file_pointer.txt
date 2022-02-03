@@ -1,0 +1,28 @@
+Files store persistent data--which is data that does not disappear after your program stops running. EOF is a special value which is the end of file character.
+
+fopen() opens a file and returns a file pointer to it; always check and make sure you aren't getting back NULL.
+    FILE *pointer  = fopen(<filename>, <operation>);    "read, write (overwrites existing data), append"
+
+fclose() closes the given file pointed to by the file pointer.
+    fclose(<file pointer>);
+
+fgetc() reads and returns the next character from the file pointed to. Note the operation of the file pointer passed in as a parameter must be read and nothing else.
+    char ch = fgetc(<file pointer>);
+
+fputc() writes or appends the specified character to the pointed-to file. Note the operation of the file pointer passed in as a parameter must be write or append.
+    fputc(<character>, <file pointer>);
+
+fread() reads <qty> units of size <size> from the file pointed to and stores them in memory in a buffer (usually an array) pointed to by <buffer>. Note the operation of the file pointer passed
+in a parameter must be read. Goes from file to buffer.
+    fread(<buffer>, <size>, <qty>, <file pointer>);
+    Examples:
+    int arr[10];
+    fread(arr, sizeof(int), 10, ptr); <-- reads 40 bytes of information from the file and stores it in arr
+
+    char c;
+    fread(&c, sizeof(char), 1, ptr); <-- reads 1 byte at a time; need to pass in pointer to variable (but not for arrays, since arrays are pointers themselves to the first element)
+
+fwrite() has the same requirements/parameters as fread(), except the file pointer must be passed as write or append. Goes from buffer to file.
+    fwrite(<buffer>, <size>, <qty>, <file pointer>);
+
+There are other helpful file functions listed in stdio.h and can be found on manual.cs50.io.
